@@ -19,13 +19,35 @@
             <span class="ml-3 text-xl">JAJABOR</span>
           </a
           >
-          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+          <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 hidden	md:flex flex-wrap items-center text-base justify-center">
             <a href="index.html" class="mr-5 hover:text-gray-900">Home</a>
             <a href="about.html" class="mr-5 hover:text-gray-900">About</a>
             <a href="shop.html" class="mr-5 hover:text-gray-900">Shop</a>
             <a href="blog.html" class="mr-5 hover:text-gray-900">Blog</a>
             <a href="contact.html" class="mr-5 hover:text-gray-900">Contact</a>
           </nav>
+         <div>
+          <svg 
+          id="hamburger-menu"
+          class="block md:hidden" 
+          xmlns="http://www.w3.org/2000/svg" 
+          width="24" 
+          height="24" 
+          viewBox="0 0 24 24">
+          <path fill="currentColor" 
+          d="M2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m0 6.032a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1m1 5.033a1 1 0 1 0 0 2h18a1 1 0 0 0 0-2z"/>
+        </svg>
+        <svg id="close-btn" class="hidden" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15l-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152l2.758 3.15a1.2 1.2 0 0 1 0 1.698"/></svg>
+          <nav
+          id="mobile-navbar" 
+          class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 hidden flex-col flex-wrap items-center text-base justify-center">
+            <a href="index.html" class="mr-5 hover:text-gray-900">Home</a>
+            <a href="about.html" class="mr-5 hover:text-gray-900">About</a>
+            <a href="shop.html" class="mr-5 hover:text-gray-900">Shop</a>
+            <a href="blog.html" class="mr-5 hover:text-gray-900">Blog</a>
+            <a href="contact.html" class="mr-5 hover:text-gray-900">Contact</a>
+          </nav>
+         </div>
           <button class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
             Cart
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
@@ -134,7 +156,7 @@
      <!-- Product Section Start -->
      <section class="text-gray-600 body-font">
         <div class="container px-5 py-24 mx-auto">
-          <div class="flex flex-wrap -m-4">
+          <div id="products-container" class="flex flex-wrap -m-4">
             <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
               <a href="product_details.html" class="block relative h-48 rounded overflow-hidden">
                 <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://images.pexels.com/photos/747470/pexels-photo-747470.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
@@ -218,7 +240,7 @@
           </div>
         </div>
       </section>
-     <!-- Product Section End -->
+     <!-- Product Section End --> 
 
      <!-- Statictics Section Starts -->
      <section class="text-gray-600 body-font">
