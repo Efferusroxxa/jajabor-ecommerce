@@ -3,12 +3,19 @@
 const params = new URLSearchParams (window.location.search)
 // console.log(params)
 const value = params.get("productId");
-console.log(value);
+// console.log(value);
+
 const productContainer = document.getElementById("product-container");
+
+const cartItem = document.getElementById("cartItem");
+let addToCartBtn;
+let cartProductItems = [];
+
 fetch(`https://fakestoreapi.com/products/${value}`)
 .then((res) => res.json())
 .then((product) => {
-    console.log(product)
+  const isAlreadyInProduct = cartProductItems.find(
+    (previousproduct) => previousproduct.id == product.id);
 const productHTML =`
  <div class="lg:w-4/5 mx-auto flex flex-wrap">
             <img alt="ecommerce" class="lg:w-1/2 w-full lg:h-auto h-64 object-cover object-center rounded" src="${product.image}">
@@ -80,6 +87,14 @@ const productHTML =`
               <div class="flex">
                 <span class="title-font font-medium text-2xl text-gray-900">$${product.price}</span>
                <a href="checkout.html">
+
+               <button
+                id="addToCartBtn"
+                class="flex ml-auto text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded">
+                ${!isAlreadyInProduct ? "Add To Cart": "Already in cart"}
+
+                </button>
+
                 <button 
                 class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
                     Checkout
@@ -97,4 +112,39 @@ const productHTML =`
 console.log(productHTML)
 
 productContainer.innerHTML = productHTML;
+
+
+addToCartBtn = document.getElementById("addToCartBtn");
+
+addToCartBtn.addEventListener("click", () => {
+if (!isAlreadyInProduct) {
+cartProductItems.push(product); // [{}, {}) -> Array Stringify
+const parsedProductItems = JSON.stringify (cartProductItems); // [{},{}]
+
+localStorage.setItem("cart", parsedProductItems);
+
+const previousCartValue = cartItem.innerText; // 14 string
+let previousCartValueNumber = Number(previousCartValue); // Number 14
+let newCartValue = previousCartValueNumber + 1; // 14 +1 = 15
+cartItem.innerText = newCartValue; //15
+addToCartBtn.innerText = "already in cart";
+addToCartBtn.disabled = true;
+} else {
+alert("the product is already in the carts");
+}
+// console.log(cartProductItems);
 });
+});
+
+function retriveCartItemFromLocalStorage() {
+  const cartProducts = JSON.parse(localStorage.getItem("cart"));
+  // console.log(cartProducts);
+  if (cartProducts === null) {
+  cartProductItems = [];
+  } else {
+  cartProductItems = cartProducts;
+  }
+  // console.log(cartProductItems);
+  cartItem.innerText = cartProductItems.length;
+  }
+  retriveCartItemFromLocalStorage();
