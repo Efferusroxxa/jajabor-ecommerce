@@ -46,7 +46,7 @@ const removeItemFromCart = (itemId) => {
     <a href="#" class="hover:underline w-80">${item.title}</a>
     </div>
     </td>
-    <td class="p-4 text-base font-normal text-gray-900 dark:text-white"> <button class="curosr-pointer" onclick="removeItemFromCart($(item.id))"
+    <td class="p-4 text-base font-normal text-gray-900 dark:text-white"> <button class="curosr-pointer" onclick="removeItemFromCart(${item.id})"
     >Remove</button></td>
     <td class="p-4 text-right text-base font-bold text-gray-900 dark:text-white">$${item.price}</td>
     </tr>
