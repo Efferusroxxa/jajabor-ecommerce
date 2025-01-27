@@ -96,7 +96,8 @@ const productHTML =`
                 </button>
 
                 <button 
-                class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded"
+                >
                  <a href="checkout.html"> 
                  Checkout
                  </a>
